@@ -41,7 +41,7 @@ const SingleOrder: React.FC<SingleOrderProps> = ({orderItem, setOrderList, order
 
     return (
         <div className='order_list__item'>
-            <img src={`/images/${orderItem.img}`} alt={orderItem.title} className='order_img'/>
+            <img src={require(`../images/${orderItem.img}`)}  alt={orderItem.title} className='order_img' />
             <div className='order_discription'>
                 <div className='order_header'>
                     <h4 className='order_title'>{orderItem.title}</h4>

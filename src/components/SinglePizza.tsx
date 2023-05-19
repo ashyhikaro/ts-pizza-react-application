@@ -1,28 +1,14 @@
-import React, {useState} from 'react'
-// import {AiFillEdit, AiFillDelete} from 'react-icons/ai'
+import React from 'react'
 import Pizza from '../models/Pizza'
 import Order from '../models/Order'
 import pizzasMenuList from '../data/PizzasData'
-// import EditPizzaForm from './EditPizzaForm'
 
 interface SinglePizzaProps {
     pizza: Pizza;
-    updatePizza: (newPizza: Pizza) => void;
-    deletePizza: (id: number) => void;
     setOrderList: (state: any) => void;
 }
 
-const SinglePizza: React.FC<SinglePizzaProps> = ({pizza, updatePizza, deletePizza, setOrderList}) => {
-    const [edit, setEdit] = useState<boolean>(false)
-   
-    // const handleToggleEdit = (): void => {
-    //     setEdit(!edit)
-    // }
-
-    // const handleDelete = (): void => {
-    //     deletePizza(pizza.id)
-    // }
-
+const SinglePizza: React.FC<SinglePizzaProps> = ({pizza, setOrderList}) => {
     const addToCart = (e: React.MouseEvent<HTMLButtonElement>): void => {
         const {id} = e.currentTarget
 
@@ -35,7 +21,7 @@ const SinglePizza: React.FC<SinglePizzaProps> = ({pizza, updatePizza, deletePizz
 
             if (existOrder) {
                 existOrder.count++
-                existOrder.total = +existOrder.count * existOrder.price
+                existOrder.total = existOrder.count * existOrder.price
                 return [...state.filter((order: Order) => existOrder.id !== order.id), existOrder]
             } else {
                 return [...state, foundedPizza]
@@ -45,9 +31,8 @@ const SinglePizza: React.FC<SinglePizzaProps> = ({pizza, updatePizza, deletePizz
     }
    
     return (
-        <div className='pizza' >
-            <img src={`/images/${pizza.img}`} alt={pizza.title} className='pizza-img'/>
-
+        <div className='pizza'>
+            <img src={require(`../images/${pizza.img}`)} alt={pizza.title} className='pizza-img'/>
             <div className='discription-container'>
                 <h2 className='pizza-title'>{pizza.title}</h2>
                 <p className='pizza-description'>{pizza.discription}</p>
@@ -57,13 +42,6 @@ const SinglePizza: React.FC<SinglePizzaProps> = ({pizza, updatePizza, deletePizz
                     <button className='order-btn' id={String(pizza.id)} onClick={addToCart}>order</button>
                 </div>
             </div>
-
-            {/* <div className='pizza-controls'>
-                <AiFillEdit onClick={handleToggleEdit}/>
-                <AiFillDelete onClick={handleDelete}/>
-            </div> */}
-
-            {/* {edit ? <EditPizzaForm data={pizza} updatePizza={updatePizza} handleToggleEdit={handleToggleEdit}/> : null} */}
         </div>
     )
 }

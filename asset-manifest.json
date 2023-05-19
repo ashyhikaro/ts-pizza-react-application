@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ts-pizza-react-application/static/css/main.2f0c3baa.css",
+    "main.js": "/ts-pizza-react-application/static/js/main.2927b4aa.js",
+    "static/media/rajasekhar-r-aSdgU3Lmx48-unsplash.jpg": "/ts-pizza-react-application/static/media/rajasekhar-r-aSdgU3Lmx48-unsplash.ea621a5f2172d2e64504.jpg",
+    "index.html": "/ts-pizza-react-application/index.html",
+    "main.2f0c3baa.css.map": "/ts-pizza-react-application/static/css/main.2f0c3baa.css.map",
+    "main.2927b4aa.js.map": "/ts-pizza-react-application/static/js/main.2927b4aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f0c3baa.css",
+    "static/js/main.2927b4aa.js"
+  ]
+}

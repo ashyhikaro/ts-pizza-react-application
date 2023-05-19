@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Montserrat";
+  background-color: black;
+  background-image: url('/public/images/rajasekhar-r-aSdgU3Lmx48-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 50px 20px 20px 20px;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 33.333333%);
+  grid-template-rows: repeat(2, 250px);
+}
+
+.discription-container {
+  background-color: black;
+  padding: 15px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  align-items: center;
+}
+
+.pizza-price {
+  font-size: 20px;
+  color: yellow;
+}
+
+.order-btn {
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.order-btn:hover {
+  color: rgb(159, 158, 158);
+  border: 1px solid rgb(159, 158, 158);
+}
+
+.pizza {
+  display: flex;
+}
+
+.pizza-img {
+  width: 50%;
+  height: auto;
+}
+
+.header {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.plug {
+  width: 18px;
+  height: 18px;
+}
+
+.cart-btn {
+  position: absolute;
+  right: 30%;
+  width: 30px;
+  height: auto;
+}
+
+.cart-btn:hover {
+  cursor: pointer;
+  color: yellow;
+}
+
+.heading {
+  text-transform: uppercase;
+  font-size: 40px;
+  text-align: center;
+}
+
+.pop-up__container {
+  color: white;
+  padding: 15px;
+  padding-top: 20px;
+  background-color: rgb(22, 22, 22);
+}
+
+.popup-content {
+  width: 70% !important;
+  background-color: rgb(22, 22, 22) !important;
+  border: none !important;
+}
+
+.order_list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 33.333333%);
+  grid-template-rows: repeat(2, auto);
+}
+
+.order_list__item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.order_img {
+  width: 40%;
+  margin-right: 10px;
+}
+
+.pop-up_title {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.pop-up_total {
+  margin-top: 15px;
+}
+
+.pop-up_total__number {
+  color: yellow;
+}
+
+.pop-up__header {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pop-up__closing {
+  position: absolute;
+  right: 1%;
+}
+
+.pop-up__closing:hover  {
+  cursor: pointer;
+  color: yellow;
+}
+
+.order_discription {
+  width: 60%;
+}
+
+.order_count_panel {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  margin: 10px 0;
+}
+
+.order_count_panel button {
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 100%;
+  color: white;
+  text-align: center;
+  line-height: 0;
+  padding: 15px 13px;
+}
+
+.order_count_panel button:first-child {
+  padding: 15px 12px;
+}
+
+.order_count_panel button:hover {
+  cursor: pointer;
+  color: yellow;
+  border-color: yellow;
+}
+
+.order_header {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.order__delete_btn:hover {
+  cursor: pointer;
+  color: yellow;
+}

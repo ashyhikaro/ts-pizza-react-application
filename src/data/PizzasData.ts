@@ -1,0 +1,48 @@
+import Pizza from "../models/Pizza";
+
+const pizzasMenuList: Array<Pizza> = [
+    {
+        id: 1,
+        title: "Margherita",
+        price: 12.50,
+        img: 'pizza-1.jpg',
+        discription: 'Classic Italian pizza with tomato sauce, mozzarella, and basil.'
+    },
+    {
+        id: 2,
+        title: "Pepperoni ",
+        price: 14.99,
+        img: 'pizza-2.jpg',
+        discription: 'Pizza with spicy sliced pepperoni and delicious cheese.'
+    },
+    {
+        id: 3,
+        title: "Hawaiian",
+        price: 13.20,
+        img: 'pizza-4.jpg',
+        discription: 'Combination of pineapple, ham, and cheese sauce for a sweet and savory flavor.'
+    },
+    {
+        id: 4,
+        title: "BBQ Chicken",
+        price: 18.56,
+        img: 'pizza-3.jpg',
+        discription: 'Pizza topped with BBQ chicken, onions, and tasty cheese.'
+    },
+    {
+        id: 5,
+        title: "Supreme",
+        price: 15.99,
+        img: 'pizza-5.jpg',
+        discription: 'Rich pizza loaded with ham, pepperoni, mushrooms, peppers, olives, and more.'
+    },
+    {
+        id: 6,
+        title: "Vegetarian ",
+        price: 12.30,
+        img: 'pizza-6.jpg',
+        discription: 'Pizza featuring fresh vegetables like peppers, mushrooms, onions, olives, and cheese.'
+    }
+]
+
+export default pizzasMenuList;

@@ -3,7 +3,7 @@ type Pizza = {
     title: string;
     price: number;
     img: string;
-    discription?: string;
+    discription: string;
 }
 
 export default Pizza;

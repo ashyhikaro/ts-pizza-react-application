@@ -1,44 +1,34 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import 'reactjs-popup/dist/index.css';
-import Pizza from './models/Pizza';
-import Order from './models/Order';
-import DisplayPizzas from './components/DisplayPizzas';
 import Cart from './components/PopUpCart';
+import { useGetPizzasQuery } from './store/api/api';
+import PagginationPizzas from './components/DisplayPizzas';
+import CreatePizza from './components/create-pizza/CreatePizza';
+import { SearchPanel } from './components/SearchPanel';
 
 const App: React.FC = () => {
-  const [pizzasList, setPizzasList] = useState<Pizza[]>([])
-  const [orderList, setOrderList] = useState<Order[]>([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [queryTerm, setQueryTerm] = useState('')
 
-  const updatePizza = (newPizza: Pizza): void => {
-    setPizzasList(pizzasList.map((pizza) => (pizza.id === newPizza.id ? newPizza : pizza)))
-  }
-
-  const deletePizza = (id: number): void => {
-    const newPizzasList = pizzasList.filter(pizza => pizza.id !== id)
-    setPizzasList(newPizzasList)
-  }
-
-  useEffect(() => {
-    console.log(orderList)
-  }, [orderList])
+  const {isLoading, data: pizzaArr} = useGetPizzasQuery(queryTerm)
   
   return (
     <div className="App">
       <div className='wrap'>
         <div className='header'>
           <h1 className='heading'>Сhoose your pizza</h1>
-          <Cart 
-            orderList={orderList}
-            setOrderList={setOrderList}
-          />
+          <Cart />
           <div id="popup-root" />
         </div>
+
+        <SearchPanel searchTerm={searchTerm} setSearchTerm={setSearchTerm} setQueryTerm={setQueryTerm} />
         
-        <DisplayPizzas 
-          setOrderList={setOrderList}
-        />
+        {isLoading ? <h3>Loading...</h3> : <PagginationPizzas pizzasArr={pizzaArr}/>}
+
       </div>
+
+      <CreatePizza />
     </div>
   );
 }

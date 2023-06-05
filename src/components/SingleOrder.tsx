@@ -1,43 +1,16 @@
 import React from 'react'
 import Order from '../models/Order';
 import {AiFillDelete} from 'react-icons/ai'
+import { useActions } from './hooks/useActions';
 
 interface SingleOrderProps {
     orderItem: Order;
-    setOrderList: (state: Order[]) => void;
-    orderList: Order[];
+    orders: Order[];
 }
 
-const SingleOrder: React.FC<SingleOrderProps> = ({orderItem, setOrderList, orderList}) => {
+const SingleOrder: React.FC<SingleOrderProps> = ({orderItem, orders}) => {
 
-    const handleAmount = (direction: string): void => {
-        let newOrder: Order = JSON.parse(JSON.stringify(orderItem))
-        let newOrderList: Order[] = JSON.parse(JSON.stringify(orderList))
-
-        if (direction === 'plus') {
-            newOrder.count++
-        } else {
-            if (newOrder.count > 1) {
-                newOrder.count--
-            }
-        }
-
-        let total: number = newOrder.count * newOrder.price
-        newOrder.total = +total.toFixed(2)
-
-        let orderIndex: number = newOrderList.findIndex((val: Order) => val.id === newOrder.id)
-        newOrderList.splice(orderIndex, 1, newOrder)
-
-        setOrderList(newOrderList)
-    }
-
-    const handleDelete = (): void => {
-        let newOrderList: Order[] = JSON.parse(JSON.stringify(orderList))
-        let orderIndex: number = newOrderList.findIndex((val: Order) => val.id === orderItem.id)
-
-        newOrderList.splice(orderIndex, 1)
-        setOrderList(newOrderList)
-    }
+    const {removeOrder, plusCountOfOrder, minusCountOfOrder} = useActions()
 
     return (
         <div className='order_list__item'>
@@ -45,15 +18,15 @@ const SingleOrder: React.FC<SingleOrderProps> = ({orderItem, setOrderList, order
             <div className='order_discription'>
                 <div className='order_header'>
                     <h4 className='order_title'>{orderItem.title}</h4>
-                    <AiFillDelete onClick={handleDelete} className='order__delete_btn'/>
+                    <AiFillDelete onClick={() => removeOrder(orderItem)} className='order__delete_btn'/>
                 </div>
                 
                 <span className='order_price'>Price: {orderItem.price} $</span>
                 <p>Amount: {orderItem.count}</p>
 
                 <div className='order_count_panel'>
-                    <button onClick={() => handleAmount('plus')}>+</button>
-                    <button onClick={() => handleAmount('minus')}>-</button>
+                    <button onClick={() => plusCountOfOrder(orderItem)}>+</button>
+                    <button onClick={() => minusCountOfOrder(orderItem)}>-</button>
                 </div>
 
                 <p>Total: {orderItem.total} $</p>

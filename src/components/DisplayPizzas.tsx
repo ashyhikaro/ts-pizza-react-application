@@ -1,24 +1,57 @@
-import React from 'react'
-import Order from '../models/Order';
+import React, {useState} from 'react'
 import SinglePizza from './SinglePizza';
-import pizzasMenuList from '../data/PizzasData';
+import Pizza from '../models/Pizza';
+import ReactPaginate from 'react-paginate';
 
 interface DisplayPizzasProps {
-    setOrderList: (state: Order[]) => void;
+    curentPizzas: Pizza[];
 }
 
-const DisplayPizzas: React.FC<DisplayPizzasProps> = ({setOrderList}) => {
+interface PagginationPizzasProps {
+    pizzasArr: Pizza[];
+}
+
+const DisplayPizzas: React.FC<DisplayPizzasProps> = ({curentPizzas}) => {
     return (
         <div className='container'>
-            {pizzasMenuList.map((pizza) => {
-                return <SinglePizza 
-                            key={pizza.id} 
-                            pizza={pizza} 
-                            setOrderList={setOrderList}
-                        />
-            })}
+            {curentPizzas?.map((pizza) => 
+                <SinglePizza 
+                    key={pizza.id} 
+                    pizza={pizza} 
+                />
+            )}
         </div>
     )
 }
 
-export default DisplayPizzas;
+const PagginationPizzas: React.FC<PagginationPizzasProps> = ({pizzasArr}) => {
+    const [itemOffset, setItemOffset] = useState<number>(0);
+    const itemsPerPage: number = 2
+
+    const endOffset: number = itemOffset + itemsPerPage;
+    const currentItems: Pizza[] = pizzasArr.slice(itemOffset, endOffset);
+    const pageCount: number = Math.ceil(pizzasArr.length / itemsPerPage);
+
+    const handlePageClick = (event: any) => {
+        const newOffset = (event.selected * itemsPerPage) % pizzasArr.length;
+        setItemOffset(newOffset);
+    };
+
+    return (
+        <>
+            <DisplayPizzas curentPizzas={currentItems} />
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel=">"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel="<"
+                renderOnZeroPageCount={null}
+                className='pagination_panel'
+            />
+        </>
+    )
+}
+
+export default PagginationPizzas;

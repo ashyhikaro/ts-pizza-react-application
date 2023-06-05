@@ -7,10 +7,9 @@
 }
 
 .App {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 1200px;
   font-family: "Montserrat";
-  background-color: black;
   background-image: url('/src/images/rajasekhar-r-aSdgU3Lmx48-unsplash.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -19,16 +18,12 @@
   padding: 50px 20px 20px 20px;
 }
 
-.wrap {
-  width: 100%;
-  height: 100%;
-}
-
 .container {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 33.333333%);
-  grid-template-rows: repeat(2, 250px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
 .discription-container {
@@ -37,6 +32,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 40%;
 }
 
 .order-container {
@@ -47,7 +43,7 @@
 }
 
 .pizza-price {
-  font-size: 20px;
+  font-size: 16px;
   color: yellow;
 }
 
@@ -67,15 +63,16 @@
 
 .pizza {
   display: flex;
+  width: 30%;
+  height: auto;
 }
 
 .pizza-img {
-  width: 50%;
+  width: 60%;
   height: auto;
 }
 
 .header {
-  margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,4 +207,108 @@
 .order__delete_btn:hover {
   cursor: pointer;
   color: yellow;
+}
+
+.pizza-description {
+  font-size: 12px;
+}
+
+.pagination_panel {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.pagination_panel > li {
+  background-color: black;
+  border-radius: 2px;
+  padding: 2px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pagination_panel > li:hover {
+  background-color: rgb(167, 167, 167);
+  color: black;
+}
+
+.add_pizza__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 20%;
+  margin: 70px auto 40px auto;
+}
+
+.add_pizza__form input {
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 8px 10px;
+  outline: none;
+  width: 100%;
+}
+
+.add_pizza__form p {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+}
+
+.add_pizza__form button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 0;
+  background-color: rgb(60, 133, 64);
+  color: white;
+  transition: background-color 0.24s ease-in;
+}
+
+.add_pizza__form button:hover {
+  cursor: pointer;
+  background-color: rgb(50, 113, 54);
+}
+
+.css-1nmdiq5-menu {
+  color: black;
+}
+
+.search_panel {
+  width: fit-content;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search_panel p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.search_panel input {
+  border: none;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  padding: 8px 10px;
+  font-size: 16px;
+}
+
+.search_panel button {
+  border: none;
+  color: white;
+  background-color: rgb(56, 157, 56);
+  font-size: 16px;
+  transition: background-color 0.24s ease-in-out;
+  border-radius: 0 10px 10px 0;
+  padding: 8px 10px;
+}
+
+.search_panel button:hover {
+  cursor: pointer;
+  background-color: rgb(36, 110, 36);
 }

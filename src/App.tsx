@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [queryTerm, setQueryTerm] = useState('')
 
-  const {isLoading, data: pizzaArr} = useGetPizzasQuery(queryTerm)
+  const {isLoading, data: pizzaArr, isError} = useGetPizzasQuery(queryTerm)
   
   return (
     <div className="App">
@@ -22,13 +22,14 @@ const App: React.FC = () => {
           <div id="popup-root" />
         </div>
 
-        <SearchPanel searchTerm={searchTerm} setSearchTerm={setSearchTerm} setQueryTerm={setQueryTerm} />
+        {isLoading ? <h3>Loading...</h3> : 
+          isError ? <h3 className='error_message'>Pizza was not found ^_^</h3> : 
+            <PagginationPizzas pizzasArr={pizzaArr}/>}
+
+        {!isError ? <SearchPanel searchTerm={searchTerm} setSearchTerm={setSearchTerm} setQueryTerm={setQueryTerm} /> : null}
         
-        {isLoading ? <h3>Loading...</h3> : <PagginationPizzas pizzasArr={pizzaArr}/>}
-
+        {!isError ? <CreatePizza /> : null}
       </div>
-
-      <CreatePizza />
     </div>
   );
 }

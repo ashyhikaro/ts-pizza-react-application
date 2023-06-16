@@ -24,6 +24,7 @@
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  margin-top: 40px;
 }
 
 .discription-container {
@@ -239,7 +240,7 @@
   flex-direction: column;
   gap: 10px;
   width: 20%;
-  margin: 70px auto 40px auto;
+  margin: 40px auto;
 }
 
 .add_pizza__form input {
@@ -311,4 +312,10 @@
 .search_panel button:hover {
   cursor: pointer;
   background-color: rgb(36, 110, 36);
+}
+
+.error_message {
+  text-align: center;
+  margin-top: 15%;
+  font-size: 32px;
 }

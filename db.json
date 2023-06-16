@@ -41,20 +41,6 @@
       "price": 12.3,
       "img": "pizza-6.jpg",
       "discription": "Pizza featuring fresh vegetables like peppers, mushrooms, onions, olives, and cheese."
-    },
-    {
-      "id": 7,
-      "title": "trrtr",
-      "price": 123123,
-      "img": "pizza-1.jpg",
-      "discription": "fgfgf"
-    },
-    {
-      "id": 8,
-      "title": "dfdf",
-      "price": 1123,
-      "img": "pizza-3.jpg",
-      "discription": "dfdfdf"
     }
   ]
 }

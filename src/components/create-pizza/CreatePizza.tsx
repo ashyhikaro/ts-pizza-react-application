@@ -35,7 +35,7 @@ export default function CreatePizza() {
     }
 
     return (
-        <div>
+        <div className="add_pizza__container">
             <form className="add_pizza__form" onSubmit={handleSubmit}>
                 <p>Add new pizza</p>
                 <label>
